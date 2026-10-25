@@ -16,18 +16,10 @@
 
 1. Fork 本仓库（或克隆到本地后推到自己的仓库）
 2. 在 Doprax / Render 新建 Web Service，关联本仓库
-3. 构建/运行设置保持默认（Dockerfile 已就绪）
-4. 在平台的环境变量里设置：
+3. 构建/运行设置**保持默认即可**——所有环境变量都有合理默认值，**无需任何配置**
+4. 直接 Deploy
 
-   | 变量 | 值 |
-   |---|---|
-   | `MODE` | `vless-reality` |
-   | `PORT` | 平台提供的端口（如 `8080`，平台会自动注入 `$PORT`） |
-   | `REALITY_SNI` | 任意真实 HTTPS 站，如 `www.apple.com` |
-   | `REALITY_DEST` | `www.apple.com:443` |
-   | `UUID` | 留空自动生成（或填 `xray uuid` 的结果） |
-
-5. 部署后看运行日志，会打印**地址/端口/UUID/公钥 publicKey/shortId**，抄到客户端。
+部署后看运行日志，会直接打印一段 **`vless://...` 导入链接**，把里面的 `<地址>` 换成 Doprax 分配的域名/IP，复制到 v2rayN / NekoBox / Shadowrocket 即可联网。
 
 > 想要新 IP：在平台点「Redeploy」即可。
 

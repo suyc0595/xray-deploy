@@ -45,6 +45,9 @@ case "$MODE" in
     echo " SNI:            $REALITY_SNI"
     echo " 公钥 publicKey: $PUB"
     echo " shortId:        $SHORT_ID"
+    echo "--------------------------------------------------------------"
+    echo " 客户端导入链接（把 <地址> 换成 Doprax 分配的域名或 IP）:"
+    echo " vless://${UUID}@<地址>:${PORT}?encryption=none&security=reality&type=tcp&headerType=none&flow=xtls-rprx-vision&pbk=${PUB}&fp=chrome&sni=${REALITY_SNI}&sid=${SHORT_ID}&spiderX=%2F#Doprax-Reality"
     echo "=============================================================="
     ;;
 
@@ -75,6 +78,9 @@ case "$MODE" in
     echo " 端口:  $PORT"
     echo " UUID:  $UUID"
     echo " WS路径: $WS_PATH"
+    echo "--------------------------------------------------------------"
+    echo " 客户端导入链接:"
+    echo " vless://${UUID}@${DOMAIN}:${PORT}?encryption=none&security=tls&type=ws&headerType=none&path=${WS_PATH}#Doprax-WS-TLS"
     echo "==============================================================="
     ;;
 
