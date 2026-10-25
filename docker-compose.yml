@@ -1,0 +1,18 @@
+services:
+  xray:
+    build: .
+    image: xray-deploy
+    container_name: xray-deploy
+    restart: unless-stopped
+    environment:
+      # 自有 VPS 推荐用 ws+TLS 模式（需真实域名 + 证书）
+      - MODE=vless-ws-tls
+      - PORT=443
+      - UUID=            # 留空=自动生成；要固定就填 xray uuid
+      - DOMAIN=your.domain.com
+      - WS_PATH=/ray
+      - CERT_DIR=/certs
+    ports:
+      - "443:443"
+    volumes:
+      - ./certs:/certs:ro
